@@ -17,3 +17,37 @@ code {
   padding: 0;
   box-sizing: border-box;
 }
+
+/* utility */
+.flex{
+  display: flex;
+}
+
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.overflow-hidden{
+  overflow: hidden;
+}
+
+.overflow-auto{
+  overflow: auto;
+}
+
+.h-full{
+  height: 100%;
+}
+
+.h-screen{
+  height: 100vh;
+}

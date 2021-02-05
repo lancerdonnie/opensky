@@ -1,25 +1,18 @@
-import Button from '@material-ui/core/Button';
 import React, { useLayoutEffect, useState } from 'react';
+
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Snackbar from '@material-ui/core/Snackbar';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: '300px',
-    margin: 'auto',
-  },
-});
 
 const Login = ({ history }: any) => {
   const [state, setState] = useState({ username: '', password: '' });
   const [open, setOpen] = useState(false);
-  const classes = useStyles();
 
   useLayoutEffect(() => {
     if (localStorage.auth === 'true') history.push('/');
+    // eslint-disable-next-line
   }, []);
 
   const handleChange = (e: React.ChangeEvent<{ value: any; name: string }>) => {
@@ -41,20 +34,11 @@ const Login = ({ history }: any) => {
   };
 
   return (
-    <Container
-      maxWidth="md"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-      }}
-    >
+    <Container maxWidth="md" className="flex-col justify-center items-center h-screen">
       <Typography variant="h5" gutterBottom style={{ color: '#849CB3' }}>
         Log in
       </Typography>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: 250 }}>
+      <form onSubmit={handleSubmit} className="flex-col" style={{ width: 250 }}>
         <TextField name="username" label="Username" value={state.username} onChange={handleChange} margin="normal" />
         <TextField
           name="password"

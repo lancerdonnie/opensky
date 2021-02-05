@@ -30,10 +30,12 @@ const Dashboard = () => {
     if (open && icao) {
       getArrivals();
     }
+    // eslint-disable-next-line
   }, [open, icao, minutes, departure]);
 
   const epoch = useMemo(() => {
     return Math.round(Date.now() / 1000);
+    // eslint-disable-next-line
   }, [icao, departure, minutes]);
 
   const calculateBegin = () => {
@@ -68,7 +70,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Container style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', height: '100%' }}>
+    <Container className="flex-col overflow-hidden h-full">
       <Nav />
 
       <Grid container spacing={3} justify="center" style={{ padding: 25, overflow: 'auto' }}>
@@ -104,7 +106,7 @@ const Dashboard = () => {
             X
           </Button>
 
-          <div style={{ display: 'flex', alignItems: 'center', marginTop: 12 }}>
+          <div className="flex items-center" style={{ marginTop: 12 }}>
             <Typography variant="body1" style={{ marginRight: 5 }}>
               Time:{' '}
             </Typography>
@@ -127,16 +129,17 @@ const Dashboard = () => {
               <MenuItem value={'arrival'}>Arrival</MenuItem>
             </Select>
           </div>
-          <div style={{ flex: 1, overflow: 'hidden', marginTop: 15 }}>
+
+          <div className="overflow-hidden" style={{ flex: 1, marginTop: 15 }}>
             <Typography variant="h6">{departure === 'departure' ? 'Departures' : 'Arrivals'}</Typography>
             <Divider />
 
             {!isFetching ? (
-              <div style={{ height: '100%', overflow: 'auto' }}>
+              <div className="overflow-auto h-full">
                 <Airports data={data} />
               </div>
             ) : (
-              <div style={{ height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="h-full flex justify-center items-center">
                 <Spinner />
               </div>
             )}
