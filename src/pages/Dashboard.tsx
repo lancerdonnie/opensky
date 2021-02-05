@@ -108,22 +108,14 @@ const Dashboard = () => {
             X
           </Button>
 
-          <Grid container justify="flex-start" style={{ marginTop: 12 }}>
+          <Grid container spacing={2} justify="flex-start" style={{ marginTop: 8 }}>
             <Grid item>
-              <Grid container>
+              <Grid container alignItems="center" spacing={1}>
                 <Grid item>
-                  <Typography variant="body1" style={{ marginRight: 5 }}>
-                    Time:{' '}
-                  </Typography>
+                  <Typography variant="body1">Time: </Typography>
                 </Grid>
                 <Grid item>
-                  <Select
-                    id="demo-simple-select"
-                    value={minutes}
-                    onChange={handleTimeChange}
-                    style={{ marginLeft: 20 }}
-                    label="Time"
-                  >
+                  <Select id="demo-simple-select" value={minutes} onChange={handleTimeChange} label="Time">
                     <MenuItem value={10}>10 Minutes</MenuItem>
                     <MenuItem value={30}>30 Minutes</MenuItem>
                     <MenuItem value={60}>60 Minutes</MenuItem>
@@ -135,19 +127,12 @@ const Dashboard = () => {
               </Grid>
             </Grid>
             <Grid item>
-              <Grid container>
+              <Grid container alignItems="center" spacing={1}>
                 <Grid item>
-                  <Typography variant="subtitle1" style={{ marginLeft: 10, marginRight: 5 }}>
-                    Type:{' '}
-                  </Typography>
+                  <Typography variant="subtitle1">Type: </Typography>
                 </Grid>
                 <Grid item>
-                  <Select
-                    id="demo-simple-select"
-                    value={departure}
-                    onChange={handleDeptChange}
-                    style={{ marginLeft: 20 }}
-                  >
+                  <Select id="demo-simple-select" value={departure} onChange={handleDeptChange}>
                     <MenuItem value={'departure'}>Departure</MenuItem>
                     <MenuItem value={'arrival'}>Arrival</MenuItem>
                   </Select>

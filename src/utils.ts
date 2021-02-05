@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
   bullet: {
     '&:hover': {
       transform: 'scale(0.9)',
@@ -18,4 +18,16 @@ export const useStyles = makeStyles({
     position: 'relative',
     borderRadius: 5,
   },
-});
+  airport: {
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 10,
+    },
+  },
+  airportSpan: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'block',
+    },
+    minWidth: 130,
+    fontWeight: 'bold',
+  },
+}));
