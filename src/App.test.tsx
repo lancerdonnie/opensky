@@ -1,11 +1,13 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { configure } from '@testing-library/dom';
+
+import App from './App';
+
 configure({ testIdAttribute: 'name' });
 
 test('Expect to login successfully and view grid', () => {
-  const { rerender } = render(
+  render(
     <Router>
       <App />
     </Router>
@@ -25,6 +27,6 @@ test('Expect to login successfully and view grid', () => {
   const dash = screen.getByText(/dashboard/i);
   expect(dash).toBeInTheDocument();
 
-  const text = screen.getByText(/atlanta/i);
+  const text = screen.getByText('London');
   expect(text).toBeInTheDocument();
 });
