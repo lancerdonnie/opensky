@@ -15,7 +15,6 @@ export const queryClient = new QueryClient({
       },
       retry: false,
       refetchOnWindowFocus: false,
-      // retry: (_: number, error: any): boolean => (!error.response ? true : false),
     },
   },
 });

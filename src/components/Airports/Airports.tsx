@@ -4,10 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Hidden from '@material-ui/core/Hidden';
-
-import { useTheme } from '@material-ui/core/styles';
 import { useStyles } from 'utils';
 
 interface Props {
@@ -15,10 +12,7 @@ interface Props {
 }
 
 const Airports: React.FC<Props> = ({ data }) => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('xs'));
-  const classes = useStyles({ matches });
-  console.log(matches);
+  const classes = useStyles();
 
   return (
     <>

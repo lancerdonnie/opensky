@@ -11,8 +11,8 @@ import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 
-import Airports from 'components/Airports';
-import Nav from 'components/Nav';
+import Airports from 'components/Airports/Airports';
+import Nav from 'components/Nav/Nav';
 import Spinner from 'components/Spinner';
 
 import { cities } from 'consts';

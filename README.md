@@ -56,6 +56,16 @@ npm run build
 
 ---
 
+### Test
+
+```bash
+npm test
+```
+
+---
+
+---
+
 ## **:handshake: Contributing**
 
 - Fork it!
