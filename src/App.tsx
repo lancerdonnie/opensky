@@ -5,6 +5,7 @@ import Login from 'pages/Login';
 import Dashboard from 'pages/Dashboard';
 import { QueryClient, QueryClientProvider, QueryFunctionContext } from 'react-query';
 import axios from 'axios';
+import Nav from 'components/Nav/Nav';
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,7 +23,8 @@ export const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Box height="100vh" overflow="auto">
+      <Box height="100vh" className="flex-col" overflow="auto">
+        <Nav />
         <Switch>
           <Route component={Login} path="/login" />
           <Route component={Dashboard} path="/" />

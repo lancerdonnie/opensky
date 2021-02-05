@@ -12,7 +12,6 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 
 import Airports from 'components/Airports/Airports';
-import Nav from 'components/Nav/Nav';
 import Spinner from 'components/Spinner';
 
 import { cities } from 'consts';
@@ -73,8 +72,6 @@ const Dashboard = () => {
 
   return (
     <Container className="flex-col overflow-hidden h-full">
-      <Nav />
-
       <Grid container spacing={3} justify="center" style={{ padding: 25, overflow: 'auto' }}>
         {cities.map((e) => {
           return (
