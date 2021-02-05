@@ -34,11 +34,13 @@ const Dashboard = () => {
   }, [open, icao, minutes, departure]);
 
   const epoch = useMemo(() => {
+    //always use the current time to fetch data wihout causing loop
     return Math.round(Date.now() / 1000);
     // eslint-disable-next-line
   }, [icao, departure, minutes]);
 
   const calculateBegin = () => {
+    //calculate minutes to subtract from select option
     return epoch - minutes * 60;
   };
 
@@ -65,7 +67,7 @@ const Dashboard = () => {
     setMinutes(event.target.value);
   };
 
-  const handleDeptChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleDeptChange = () => {
     setDeparture((dep) => (dep === 'arrival' ? 'departure' : 'arrival'));
   };
 
@@ -106,29 +108,53 @@ const Dashboard = () => {
             X
           </Button>
 
-          <div className="flex items-center" style={{ marginTop: 12 }}>
-            <Typography variant="body1" style={{ marginRight: 5 }}>
-              Time:{' '}
-            </Typography>
-
-            <Select id="demo-simple-select" value={minutes} onChange={handleTimeChange} label="Time">
-              <MenuItem value={10}>10 Minutes</MenuItem>
-              <MenuItem value={30}>30 Minutes</MenuItem>
-              <MenuItem value={60}>60 Minutes</MenuItem>
-              <MenuItem value={6 * 60}>6 Hours</MenuItem>
-              <MenuItem value={12 * 60}>12 Hours</MenuItem>
-              <MenuItem value={24 * 60}>24 Hours</MenuItem>
-            </Select>
-
-            <Typography variant="subtitle1" style={{ marginLeft: 10, marginRight: 5 }}>
-              Type:{' '}
-            </Typography>
-
-            <Select id="demo-simple-select" value={departure} onChange={handleDeptChange} style={{ marginLeft: 20 }}>
-              <MenuItem value={'departure'}>Departure</MenuItem>
-              <MenuItem value={'arrival'}>Arrival</MenuItem>
-            </Select>
-          </div>
+          <Grid container justify="flex-start" style={{ marginTop: 12 }}>
+            <Grid item>
+              <Grid container>
+                <Grid item>
+                  <Typography variant="body1" style={{ marginRight: 5 }}>
+                    Time:{' '}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Select
+                    id="demo-simple-select"
+                    value={minutes}
+                    onChange={handleTimeChange}
+                    style={{ marginLeft: 20 }}
+                    label="Time"
+                  >
+                    <MenuItem value={10}>10 Minutes</MenuItem>
+                    <MenuItem value={30}>30 Minutes</MenuItem>
+                    <MenuItem value={60}>60 Minutes</MenuItem>
+                    <MenuItem value={6 * 60}>6 Hours</MenuItem>
+                    <MenuItem value={12 * 60}>12 Hours</MenuItem>
+                    <MenuItem value={24 * 60}>24 Hours</MenuItem>
+                  </Select>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid container>
+                <Grid item>
+                  <Typography variant="subtitle1" style={{ marginLeft: 10, marginRight: 5 }}>
+                    Type:{' '}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Select
+                    id="demo-simple-select"
+                    value={departure}
+                    onChange={handleDeptChange}
+                    style={{ marginLeft: 20 }}
+                  >
+                    <MenuItem value={'departure'}>Departure</MenuItem>
+                    <MenuItem value={'arrival'}>Arrival</MenuItem>
+                  </Select>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
 
           <div className="overflow-hidden" style={{ flex: 1, marginTop: 15 }}>
             <Typography variant="h6">{departure === 'departure' ? 'Departures' : 'Arrivals'}</Typography>
