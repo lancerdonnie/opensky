@@ -4,7 +4,7 @@
 
 > Shows flight information of major cities with heavy air traffic.
 
-## Visit [myopenair.netlify.app](https://myopenair.netlify.app) to see the live url!
+## Visit [myopenair.netlify.app](https://myopenair.netlify.app) (User:demo, pass:demo) to see the live url!
 
 ## **:package: Tools used**
 
